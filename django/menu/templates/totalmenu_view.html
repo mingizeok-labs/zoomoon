@@ -46,29 +46,34 @@
                     </thead>
                     <tbody>
                         {% for menu in menus %}
-                            {% if menu.category == 'KOREAN' %}
+                            {% if menu.category_id == 1 %}
                                 <tr>
-                                    <td>{{ menu.get_category_display }}</td>
+                                    <td>한식</td>
                                     <td>{{ menu.food }}</td>
                                 </tr>
-                            {% elif menu.category == 'JAPANESE' %}
+                            {% elif menu.category_id == 2 %}
                                 <tr>
-                                    <td>{{ menu.get_category_display }}</td>
+                                    <td>일식</td>
                                     <td>{{ menu.food }}</td>
                                 </tr>
-                            {% elif menu.category == 'CHINESE' %}
+                            {% elif menu.category_id == 3 %}
                                 <tr>
-                                    <td>{{ menu.get_category_display }}</td>
+                                    <td>중식</td>
                                     <td>{{ menu.food }}</td>
                                 </tr>
-                            {% elif menu.category == 'WESTERN' %}
+                            {% elif menu.category_id == 4 %}
                                 <tr>
-                                    <td>{{ menu.get_category_display }}</td>
+                                    <td>양식</td>
                                     <td>{{ menu.food }}</td>
                                 </tr>
-                            {% elif menu.category == 'ETC' %}
+                            {% elif menu.category_id == 6 %}
                                 <tr>
-                                    <td>{{ menu.get_category_display }}</td>
+                                    <td>퓨전</td>
+                                    <td>{{ menu.food }}</td>
+                                </tr>
+                            {% elif menu.category_id == 5 %}
+                                <tr>
+                                    <td>기타</td>
                                     <td>{{ menu.food }}</td>
                                 </tr>
                             {% endif %}
