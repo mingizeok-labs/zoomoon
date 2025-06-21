@@ -5,5 +5,5 @@ app_name = 'menu' # name space 지정
 
 urlpatterns = [
     path('totalmenu_view', views.totalmenu_view, name='totalmenu_view'),
-    path('add', views.menu_add, name='menu_add'),
+    path('add', views.add_menu, name='add_menu'),
 ]
