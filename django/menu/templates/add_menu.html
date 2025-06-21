@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD MENU</title>
+    <style>
+        @font-face {
+                font-family: 'Ownglyph_ParkDaHyun';
+                src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_ParkDaHyun.woff2') format('woff2');
+                font-weight: normal;
+                font-style: normal;
+            }
+        html {background-color: #FFF8DC;}
+        body {
+            text-align: center;
+            font-family: 'Ownglyph_ParkDaHyun';
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>메뉴 등록</h1>
+    
+        
+    
+    <div class="add">
+        <select> <!--카테고리 선택-->
+            {% for cat in category %}
+            <option>{{ cat.display_name }}</option>
+            {% endfor %}
+        </select>
+        <!--메뉴 입력-->
+        <input type="text" class="input" placeholder="추가하고 싶은 메뉴를 입력하세요.">
+    </div>
+</body>
+</html>
