@@ -18,6 +18,5 @@ class Menu(models.Model):
     # -> 카테고리 Table 생성으로 삭제
     category = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name='카테고리')
     food = models.CharField(max_length=20, unique=True)
-    
     def __str__(self):
-        return f'{self.category} : {self.food}'
+        return self.food
