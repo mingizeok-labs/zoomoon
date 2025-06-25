@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            @font-face {
+                font-family: 'Ownglyph_ParkDaHyun';
+                src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_ParkDaHyun.woff2') format('woff2');
+                font-weight: normal;
+                font-style: normal;
+            }
+            html {background-color: #FFF8DC;}
+            body {
+                text-align: center;
+                font-family: 'Ownglyph_ParkDaHyun';
+                font-size: 30px;
+            }
+            .background {
+                max-width: 900px; /* 박스의 최대 너비 */
+                margin: 40px auto; /* 상하 40px, 좌우 자동 (가운데 정렬) */
+                background-color: #FFFFF0; /* 박스 배경색 */
+                border-radius: 10px; /* 모서리를 둥글게 */
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+                padding: 30px; /* 박스 내부 여백 */
+            }
+            .title {text-align: center;}
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+        </style>
+        <title>TOTAL MENU LIST</title>
+    </head>
+    <body>
+        <div class = background>
+            <h1 class=title> 등록된 메뉴 목록</h1>
+            <div class="table">
+                <table border="2">
+                    <thead>
+                        <tr>
+                            <th>카테고리</th>
+                            <th>음식</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for menu in menus %}
+                            {% if menu.category_id == 1 %}
+                                <tr>
+                                    <td>한식</td>
+                                    <td>{{ menu.food }}</td>
+                                </tr>
+                            {% elif menu.category_id == 2 %}
+                                <tr>
+                                    <td>일식</td>
+                                    <td>{{ menu.food }}</td>
+                                </tr>
+                            {% elif menu.category_id == 3 %}
+                                <tr>
+                                    <td>중식</td>
+                                    <td>{{ menu.food }}</td>
+                                </tr>
+                            {% elif menu.category_id == 4 %}
+                                <tr>
+                                    <td>양식</td>
+                                    <td>{{ menu.food }}</td>
+                                </tr>
+                            {% elif menu.category_id == 6 %}
+                                <tr>
+                                    <td>퓨전</td>
+                                    <td>{{ menu.food }}</td>
+                                </tr>
+                            {% elif menu.category_id == 5 %}
+                                <tr>
+                                    <td>기타</td>
+                                    <td>{{ menu.food }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div> <!-- background -->
+    </body>
+    </html>
