@@ -89,14 +89,9 @@
         {{ errormsg }}
         <div class="add">
             <form action="{% url 'menu:add_menu' %}" method="post" class="add">
-                {% csrf_token %}
-                <select class="add_cat" name="category_id"> <!--카테고리 선택-->
-                    {% for cat in category %}
-                    <option value="{{ cat_id }}">{{ cat.display_name }}</option>
-                    {% endfor %}
-                </select>
-                <!--메뉴 입력-->
-                <input type="text" class="add_food" name="food" placeholder="추가하고 싶은 메뉴를 입력하세요.">
+                {% csrf_token %} <!--post 폼에는 추가.-->
+                {{ form.category }} <!--form.py에서 가져옴-->
+                {{ form.food }}
                 <button type="submit" class="add_submit">등록</button>
             </form>
         </div> <!--add-->
