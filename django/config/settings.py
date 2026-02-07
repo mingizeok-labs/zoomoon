@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 추가
     'menu',
+    'plzchoose'
 ]
 
 MIDDLEWARE = [
