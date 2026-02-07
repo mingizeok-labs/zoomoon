@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('menu/', include('menu.urls')), # menu/ 경로 요청
     path('plzchoose/', include('plzchoose.urls')), # plzchoose/
+    path('', include('zoomoon.urls')),
 ]
