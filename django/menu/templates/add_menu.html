@@ -35,6 +35,7 @@
         form {
             display: flex;
             align-items: center;
+            justify-content: center;
         }
         .add_cat,
         .add_food,
@@ -95,6 +96,9 @@
                 <button type="submit" class="add_submit">등록</button>
             </form>
         </div> <!--add-->
+        <form action="{% url 'menu:totalmenu_view' %}" method="get" class="add">
+            <button type="submit" class="add_submit">기존메뉴 구경하러 가기</button>
+        </form>
     </div> <!--background-->
     
 </body>
