@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            @font-face {
+                font-family: 'Ownglyph_ParkDaHyun';
+                src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_ParkDaHyun.woff2') format('woff2');
+                font-weight: normal;
+                font-style: normal;
+            }
+            html {background-color: #FFF8DC;}
+            body {
+                text-align: center;
+                font-family: 'Ownglyph_ParkDaHyun';
+                font-size: 30px;
+            }
+            .background {
+                max-width: 900px; /* 박스의 최대 너비 */
+                margin: 40px auto; /* 상하 40px, 좌우 자동 (가운데 정렬) */
+                background-color: #FFFFF0; /* 박스 배경색 */
+                border-radius: 10px; /* 모서리를 둥글게 */
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+                padding: 30px; /* 박스 내부 여백 */
+            }
+            .title {text-align: center;}
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            .add_cat,
+            .add_food,
+            .add_submit {
+                /* 기본 크기 설정 */
+                padding: 10px 15px; /* 내부 여백 (위아래 10px, 좌우 15px) */
+                font-size: 16px; /* 글자 크기 */
+                border: 1px solid #ddd; /* 테두리 */
+                border-radius: 5px; /* 테두리 모서리 둥글게 */
+                font-family: 'Ownglyph_ParkDaHyun';
+                font-size: 20px;
+            }
+            .add_submit {
+            background-color: #C8A2C8; /* 버튼 배경색 (초록색) */
+            color: white; /* 글자색 */
+            cursor: pointer; /* 마우스 오버 시 커서 변경 */
+            transition: background-color 0.3s ease; /* 호버 효과 부드럽게 */
+            height: 45px; /* 버튼 높이 */
+            font-weight: bold; /* 글자 굵게 */
+        }
+
+        @media (max-width: 768px) {
+
+            body {
+                font-size: 18px;
+            }
+
+            .background {
+                margin: 20px 12px;
+                padding: 20px;
+            }
+
+            form {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+
+            .add_submit {
+                width: 100%;
+                font-size: 18px;
+            }
+
+            table {
+                font-size: 16px;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+
+            /* 테이블이 너무 넓어질 경우 스크롤 허용 */
+            .table {
+                overflow-x: auto;
+            }
+        }
+
+        </style>
+        <title>TOTAL MENU LIST</title>
+    </head>
+    <body>
+        <div class = background>
+            <h1 class=title> 등록된 메뉴 목록</h1>
+            <p>
+                <form action="{% url 'menu:add_menu' %}" method="get" class="add">
+                    메뉴가 없을땐, 
+                    <button type="submit" class="add_submit">새로운 메뉴 등록하러 가기</button>
+                </form>
+                <br>
+                <form action="{% url 'plzchoose:random' %}" method="get" class="add">
+                    결정이 어려울땐, 
+                    <button type="submit" class="add_submit">랜덤메뉴 추천</button>
+                </form>
+            </p>
+            <div class="table">
+                <table border="2">
+                    <thead>
+                        <tr>
+                            <th>카테고리</th>
+                            <th>음식</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for menu in menus %}
+                            {% if menu.category_id == 1 %}
+                                <tr>
+                                    <td>{{ menu.category.display_name }}</td>
+                                    <td>{{ menu.food }}</td>
+                                </tr>
+                            {% elif menu.category_id == 2 %}
+                                <tr>
+                                    <td>{{ menu.category.display_name }}</td>
+                                    <td>{{ menu.food }}</td>
+                                </tr>
+                            {% elif menu.category_id == 3 %}
+                                <tr>
+                                    <td>{{ menu.category.display_name }}</td>
+                                    <td>{{ menu.food }}</td>
+                                </tr>
+                            {% elif menu.category_id == 4 %}
+                                <tr>
+                                    <td>{{ menu.category.display_name }}</td>
+                                    <td>{{ menu.food }}</td>
+                                </tr>
+                            {% elif menu.category_id == 6 %}
+                                <tr>
+                                    <td>{{ menu.category.display_name }}</td>
+                                    <td>{{ menu.food }}</td>
+                                </tr>
+                            {% elif menu.category_id == 5 %}
+                                <tr>
+                                    <td>{{ menu.category.display_name }}</td>
+                                    <td>{{ menu.food }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div> <!-- background -->
+    </body>
+    </html>
