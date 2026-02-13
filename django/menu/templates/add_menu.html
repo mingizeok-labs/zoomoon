@@ -76,6 +76,36 @@
         .point {
             color: #B28CB2;
         }
+
+        @media (max-width: 768px) {
+
+            body {
+                font-size: 18px; /* 전체 글자 크기 축소 */
+            }
+
+            .background {
+                margin: 20px 12px; /* 좌우 여백 확보 */
+                padding: 20px;
+            }
+
+            form {
+                flex-direction: column; /* 가로 → 세로 정렬 */
+                align-items: stretch;
+                gap: 10px;
+            }
+
+            .add_cat,
+            .add_food,
+            .add_submit {
+                width: 100%; /* 한 줄씩 꽉 차게 */
+            }
+
+            .add_food {
+                min-width: 0; /* 모바일에서 튀는 현상 방지 */
+            }
+
+        }
+
     </style>
 </head>
 <body>
